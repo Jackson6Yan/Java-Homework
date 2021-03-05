@@ -1,0 +1,191 @@
+课堂例子1：
+package Week1;
+
+import java.util.Scanner;
+
+public class Song {
+	public static void main(String[] args) {
+		//定义变量
+		String songTitle;
+		float songPrice;
+		int number;
+		
+		float totalRevence;
+		float siteTevence;
+		float manageRevence;
+		float siteRate;
+		float manageRate; 
+		
+		//为变量赋值
+		siteRate = 0.03f;
+		manageRate = 0.12f;
+		Scanner scan = new Scanner(System.in);
+		System.out.println("请输入歌曲名称：");
+		songTitle = scan.nextLine();
+		System.out.println("请输入单价：");
+		songPrice = scan.nextFloat();
+		System.out.println("请输入数量：");
+		number = scan.nextInt();
+		
+		//运算处理
+		totalRevence = songPrice*number;
+		siteTevence = totalRevence*siteRate;
+		manageRevence = totalRevence*manageRate;
+		
+		//结果输出
+		System.out.println("总利润："+totalRevence);
+		System.out.println("经理利润："+manageRevence);
+		System.out.println("站点利润："+siteTevence);
+	}
+}
+
+课堂例子2：
+package example;
+
+import java.util.Scanner;
+
+public class Test {
+	public static void main(String[] args) {
+		//definition of variable element
+		final int BOX_CONTAIN = 24;
+		final int CONTAINER_CONTAIN = 75;
+		int biscuit;
+		int box;
+		int container;
+		int remainBiscuits;
+		int remainBoxes;
+		
+		//input the data
+		System.out.println("Please input the number of biscuits:");
+		Scanner scan = new Scanner(System.in);
+		biscuit = scan.nextInt();
+		
+		//data processing
+		box = biscuit / BOX_CONTAIN;
+		container = box / CONTAINER_CONTAIN;
+		remainBiscuits = biscuit%BOX_CONTAIN;
+		remainBoxes = box % CONTAINER_CONTAIN;
+		
+		//output the data
+		System.out.println("The number of boxes is :"+box);
+		System.out.println("The remain biscuits'number is :"+remainBiscuits);
+		System.out.println("The number of containers is :"+container);
+		System.out.println("The remain boxes'number is :"+remainBoxes);
+		
+	}
+
+}
+
+
+
+作业1：
+package Week1;
+
+import java.util.Scanner;
+
+public class first {
+	public static void main(String[] args) {
+		//定义
+		double dollars;		//输入美元数目
+		final int DOLLARS = 100;				//1美元=100美分
+		final int FIFTYCENTS = 50;				//50美分
+		final int TWENTYCENTS = 20;				//20美分
+		final int TENCENTS = 10;				//10美分
+		final int FIVECENTS = 5;				//5美分
+		int dollarsNumber;				//1美元数
+		int fiftyCentsNumber;				//50美分数
+		int twentyCentsNumber;				//20美分数
+		int tenCentsNumber;				//10美分数
+		int fiveCentsNumber;				//5美分数
+		int temp;			//暂时转换数
+		
+		//输入
+		System.out.println("请输入美元数（如输入9.85表示$9.85）");
+		Scanner scan = new Scanner(System.in);
+		dollars = scan.nextDouble();
+		
+		//处理
+		temp = (int)(dollars*100);
+		dollarsNumber = temp/DOLLARS;
+		fiftyCentsNumber = (temp%100)/FIFTYCENTS;
+		twentyCentsNumber = (temp%50)/TWENTYCENTS;
+		tenCentsNumber = ((temp%50)-twentyCentsNumber*20)/TENCENTS;
+		fiveCentsNumber = (temp%10)/FIVECENTS;
+		
+		//输出
+		System.out.println("$"+dollars+"是由"+dollarsNumber+"个1美元和"
+		+fiftyCentsNumber+"个50美分和"+twentyCentsNumber+"个20美分和"
+		+tenCentsNumber+"个10美分和"+fiveCentsNumber+"个5美分组成");
+		
+		System.out.println("化简后为（省去0个面值的结果）：");
+		System.out.print("$"+dollars+"是由");
+		if(dollarsNumber!=0) {
+			System.out.print(dollarsNumber+"个1美元");
+		}
+		if(fiftyCentsNumber!=0) {
+			System.out.print("和");
+			System.out.print(fiftyCentsNumber+"个50美分");
+		}
+		if(twentyCentsNumber!=0) {
+			System.out.print("和");
+			System.out.print(twentyCentsNumber+"个20美分");
+		}
+		if(tenCentsNumber!=0) {
+			System.out.print("和");
+			System.out.print(tenCentsNumber+"个10美分");
+		}
+		if(fiveCentsNumber!=0) {
+			System.out.print("和");
+			System.out.print(fiveCentsNumber+"个5美分");
+		}
+		System.out.println("组成");
+	
+	}
+	
+}
+
+作业2：
+package Week1;
+
+import java.util.Scanner;
+
+public class second {
+public static void main(String[] args) {
+	 int choose;
+	 double length;
+	 double width;
+	 double money;
+	 String color;
+	 double frameMoney;
+	 int crownsNumber;
+	 
+	 System.out.println("Please input the length and width of the picture(in inches)");
+	 Scanner scan = new Scanner(System.in);
+	 length = scan.nextDouble();
+	 width = scan.nextDouble();
+	 System.out.println("Please input the type of the frame");
+	 System.out.println("(1)regular    (2)fancy");
+	 System.out.println("If you input any other number,you will choose fancy one!");
+	 choose = scan.nextInt();
+	 System.out.println("Input the colour of the frame");
+	 color = scan.next();
+	 System.out.println("Input the number of crowns");
+	 crownsNumber = scan.nextInt();
+	 
+	 if(choose==1) {
+		 frameMoney = ((length+width)*2+4)*0.15;
+	 }else {
+		 frameMoney = ((length+width)*2+4)*0.25;
+	 }
+	 money = frameMoney + length*width*(0.002+0.007) +0.35*crownsNumber;
+	 
+	 System.out.println("The cost of framing the picture is $"+money );
+	
+}
+}
+
+
+
+
+
+
