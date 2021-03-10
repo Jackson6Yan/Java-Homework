@@ -1,0 +1,78 @@
+水仙花数：
+package Package1;
+
+import java.util.Scanner;
+
+public class Homework {
+
+	public static void main(String[] args) {
+		int n;
+		int number = 1;
+		boolean choose = true;
+		int wei;
+		//int a[] = null;
+		//a = new int[10];
+		int result = 0;
+		int temp;
+		int weiresult = 1;
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("请输入几位水仙花数");
+		n = scan.nextInt();
+		for(int i=0;i<n-1;i++){
+			number*=10;
+		}
+		//System.out.println(number);
+		for(int i=number+1;i<number*10;i++){
+			temp = i;
+			for(int j=0;j<n;j++){
+				/*a[j] = temp%10;
+				temp = (temp-a[j])/10;
+				result = a[j]*a[j] + result;*/
+				wei = temp%10;
+				temp = (temp - wei)/10;
+				for(int k=0;k<n;k++){
+					weiresult = weiresult * wei;
+				}
+				result = weiresult + result;
+				weiresult = 1;
+			}
+			//System.out.println(result+"  "+i);
+			if(result == i){
+				System.out.println(i);
+			}
+			result = 0;
+		}
+
+	}
+
+}
+
+
+打印星星：
+package Package1;
+
+import java.util.Scanner;
+
+public class Homework2 {
+
+	public static void main(String[] args) {
+		int n;
+		
+		System.out.println("Please input the number of lines");
+		Scanner scan = new Scanner(System.in);
+		
+		n = scan.nextInt();
+		for(int i=1;i<n;i++){				//第一行
+			for(int j=0;j<n-i;j++){			//打空格
+				System.out.print(" ");
+			}
+			for(int k=1;k<=i;k++){
+				System.out.print("* ");			//打*
+			}
+			System.out.println();
+		}
+
+	}
+
+}
